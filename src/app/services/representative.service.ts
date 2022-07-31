@@ -13,6 +13,10 @@ export class RepresentativeService {
     return this._HttpClient.get(this.baseUrl + 'all-representative');
   }
 
+  getShipments(representative_id : any ) {
+    return this._HttpClient.get(this.baseUrl + `/representative-totle/${representative_id}`);
+  }
+
   emp_register(registerationData: any){
     return this._HttpClient.post(this.baseUrl + 'create-representative', registerationData);
   }

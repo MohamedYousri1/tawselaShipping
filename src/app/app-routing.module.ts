@@ -160,7 +160,9 @@ const routes: Routes = [
   { path: 'users',  canActivate:[AuthGuard] ,   component :UsersComponent},
   { path: 'supervisors', canActivate:[AuthGuard] ,    component :SupervisorsComponent},
   { path: 'sales', canActivate:[AuthGuard] ,   component :SalesComponent},
-  { path: 'representative',  canActivate:[AuthGuard] ,   component :RepresentativeReportComponent},
+  // { path: 'representative',  canActivate:[AuthGuard] ,   component :RepresentativeReportComponent},
+  { path: 'representativeReport', canActivate:[AuthGuard] ,    component :RepresentativeReportComponent},
+
   { path: 'customer_received', canActivate:[AuthGuard] ,    component :CustomersRecReportComponent},
 
   { path: 'income', canActivate:[AuthGuard] ,    component :IncomeComponent},

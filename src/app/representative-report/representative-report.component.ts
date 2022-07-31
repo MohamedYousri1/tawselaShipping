@@ -1,3 +1,4 @@
+import { RepresentativeService } from './../services/representative.service';
 import { ReportsService } from './../services/reports.service';
 import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -12,19 +13,29 @@ export class RepresentativeReportComponent implements OnInit {
     //pagination
     rows = 5;
     recourdNumber:number;
-  constructor( private fb:FormBuilder  , private _client : ReportsService ) { }
+    representative_id : any ;
+  constructor( private fb:FormBuilder  , private _representative : RepresentativeService ) { }
 
   ngOnInit(): void {
-    this.getAllClients()
+    this.getAllRepresentative()
   }
 
   // get  allRepresentative
-  allRepresentative
-  getAllClients()
+  allRepresentatives
+  getAllRepresentative()
   {
-    return this._client.get_allRepresentative().subscribe(res =>  {
-      this.allRepresentative = res ;
+    return this._representative.get_represenative().subscribe(res =>  {
+      this.allRepresentatives = res.representative ;
     })
   }
-
+  // showing Shipments
+  results ;
+  showResult()
+  {
+    debugger
+    this._representative.getShipments(2).subscribe((res : any ) =>  {
+      this.results  = res.data?.shipment ;
+    },err=> {
+      console.log })
+  }
 }
